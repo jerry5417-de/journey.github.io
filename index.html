@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Furniture Design Portfolio</title>
+<title>Furniture Installation Videos</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Roboto,PingFang SC,Microsoft YaHei,sans-serif;scroll-behavior:smooth;}
 body{background:#0a0a0a;color:#e0e0e0;padding:0 20px 80px;}
@@ -21,11 +21,15 @@ body{background:#0a0a0a;color:#e0e0e0;padding:0 20px 80px;}
 .work-info{padding:26px;}
 .work-title{font-size:17px;color:#fff;margin-bottom:10px;font-weight:500;}
 .work-desc{font-size:14px;color:#888;line-height:1.6;}
-.video-box{max-width:900px;margin:60px auto;background:#111;border-radius:12px;padding:30px;border:1px solid #222;text-align:center;}
-.video-box h2{font-size:22px;color:#fff;margin-bottom:20px;font-weight:400;}
-.upload-btn{padding:12px 30px;background:#fff;color:#111;border:none;border-radius:8px;font-size:15px;cursor:pointer;}
-.upload-btn:hover{opacity:.9;}
-#videoPlayer{width:100%;margin-top:20px;border-radius:8px;display:none;}
+
+.video-group{max-width:900px;margin:60px auto;display:grid;grid-template-columns:1fr;gap:24px;}
+.video-box{background:#111;border-radius:12px;padding:26px;border:1px solid #222;}
+.video-box h3{color:#fff;font-size:18px;margin-bottom:12px;font-weight:500;}
+.video-box input.name{width:100%;padding:10px 12px;background:#161616;border:1px solid #333;border-radius:6px;color:#fff;margin-bottom:12px;outline:none;}
+.video-box .btn{padding:10px 20px;background:#fff;color:#111;border:none;border-radius:6px;cursor:pointer;}
+.video-box .btn:hover{opacity:.9;}
+.video-box video{width:100%;margin-top:16px;border-radius:8px;display:none;}
+
 .about{max-width:900px;margin:100px auto 0;text-align:center;padding-top:60px;border-top:1px solid #1a1a1a;}
 .about h2{font-size:26px;color:#fff;margin-bottom:18px;font-weight:400;}
 .about p{color:#888;line-height:1.8;font-size:15px;}
@@ -35,83 +39,136 @@ body{background:#0a0a0a;color:#e0e0e0;padding:0 20px 80px;}
 <body>
 
 <div class="nav">
-  <div class="logo">FURNITURE DESIGN</div>
+  <div class="logo">FURNITURE INSTALL</div>
   <div class="menu">
     <a href=" ">Home</a >
-    <a href="#works">Works</a >
-    <a href="#video">Video</a >
+    <a href="#works">Products</a >
+    <a href="#videos">Videos</a >
     <a href="#about">About</a >
   </div>
 </div>
 
 <div class="hero" id="home">
-  <h1>Furniture Design Portfolio</h1>
-  <p>Minimalist & Functional Furniture Design | Quality & Structure</p >
+  <h1>Installation Video Showcase</h1>
+  <p>Upload & play different furniture installation videos</p >
 </div>
 
 <div class="works" id="works">
   <div class="work-item">
-    <div class="work-img">Cabinet Design</div>
+    <div class="work-img">Cabinet</div>
     <div class="work-info">
-      <div class="work-title">Modern Storage Cabinet</div>
-      <div class="work-desc">Clean lines, large capacity, minimalist style</div>
+      <div class="work-title">Cabinet Installation</div>
+      <div class="work-desc">Panel assembly & fixing guide</div>
     </div>
   </div>
   <div class="work-item">
-    <div class="work-img">Vanity Table</div>
+    <div class="work-img">Vanity</div>
     <div class="work-info">
-      <div class="work-title">Light Luxury Vanity Table</div>
-      <div class="work-desc">Suitable for bedroom, simple & elegant</div>
+      <div class="work-title">Vanity Table Install</div>
+      <div class="work-desc">Step-by-step installation</div>
     </div>
   </div>
   <div class="work-item">
     <div class="work-img">TV Cabinet</div>
     <div class="work-info">
-      <div class="work-title">Minimalist TV Cabinet</div>
-      <div class="work-desc">Integrated design, strong sense of space</div>
+      <div class="work-title">TV Cabinet Setup</div>
+      <div class="work-desc">Structure & hardware install</div>
     </div>
   </div>
   <div class="work-item">
     <div class="work-img">Side Cabinet</div>
     <div class="work-info">
-      <div class="work-title">Multi-Function Side Cabinet</div>
-      <div class="work-desc">Small size, powerful storage</div>
-    </div>
-  </div>
-  <div class="work-item">
-    <div class="work-img">Dresser</div>
-    <div class="work-info">
-      <div class="work-title">High-End Dresser</div>
-      <div class="work-desc">High-quality materials, durable structure</div>
-    </div>
-  </div>
-  <div class="work-item">
-    <div class="work-img">Custom Furniture</div>
-    <div class="work-info">
-      <div class="work-title">Custom Furniture Service</div>
-      <div class="work-desc">Custom size & style for global clients</div>
+      <div class="work-title">Side Cabinet Assembly</div>
+      <div class="work-desc">Simple & fast installation</div>
     </div>
   </div>
 </div>
 
-<div class="video-box" id="video">
-  <h2>Design Video Showcase</h2>
-  <button class="upload-btn" onclick="document.getElementById('file').click()">Upload Video</button>
-  <input type="file" id="file" accept="video/*" style="display:none;">
-  <video id="videoPlayer" controls></video>
+<div class="video-group" id="videos">
+
+  <div class="video-box">
+    <h3>Video 1</h3>
+    <input class="name" placeholder="Product name / File name">
+    <button class="btn" onclick="upload(1)">Upload Video</button>
+    <input type="file" id="file1" accept="video/*" style="display:none;">
+    <video id="vid1" controls></video>
+  </div>
+
+  <div class="video-box">
+    <h3>Video 2</h3>
+    <input class="name" placeholder="Product name / File name">
+    <button class="btn" onclick="upload(2)">Upload Video</button>
+    <input type="file" id="file2" accept="video/*" style="display:none;">
+    <video id="vid2" controls></video>
+  </div>
+
+  <div class="video-box">
+    <h3>Video 3</h3>
+    <input class="name" placeholder="Product name / File name">
+    <button class="btn" onclick="upload(3)">Upload Video</button>
+    <input type="file" id="file3" accept="video/*" style="display:none;">
+    <video id="vid3" controls></video>
+  </div>
+
+  <div class="video-box">
+    <h3>Video 4</h3>
+    <input class="name" placeholder="Product name / File name">
+    <button class="btn" onclick="upload(4)">Upload Video</button>
+    <input type="file" id="file4" accept="video/*" style="display:none;">
+    <video id="vid4" controls></video>
+  </div>
+
+  <div class="video-box">
+    <h3>Video 5</h3>
+    <input class="name" placeholder="Product name / File name">
+    <button class="btn" onclick="upload(5)">Upload Video</button>
+    <input type="file" id="file5" accept="video/*" style="display:none;">
+    <video id="vid5" controls></video>
+  </div>
+
+  <div class="video-box">
+    <h3>Video 6</h3>
+    <input class="name" placeholder="Product name / File name">
+    <button class="btn" onclick="upload(6)">Upload Video</button>
+    <input type="file" id="file6" accept="video/*" style="display:none;">
+    <video id="vid6" controls></video>
+  </div>
+
+  <div class="video-box">
+    <h3>Video 7</h3>
+    <input class="name" placeholder="Product name / File name">
+    <button class="btn" onclick="upload(7)">Upload Video</button>
+    <input type="file" id="file7" accept="video/*" style="display:none;">
+    <video id="vid7" controls></video>
+  </div>
+
+  <div class="video-box">
+    <h3>Video 8</h3>
+    <input class="name" placeholder="Product name / File name">
+    <button class="btn" onclick="upload(8)">Upload Video</button>
+    <input type="file" id="file8" accept="video/*" style="display:none;">
+    <video id="vid8" controls></video>
+  </div>
+
 </div>
 
 <div class="about" id="about">
-  <h2>About Design</h2>
-  <p>Focus on minimalist, practical, high-quality furniture design. Provide professional design and display for global customers.</p >
+  <h2>Installation Guide</h2>
+  <p>Professional installation videos for global customers.</p >
 </div>
 
-<div class="footer">© 2026 Furniture Design | Global Available</div>
+<div class="footer">© 2026 Furniture Installation | Global Available</div>
 
 <script>
-const f=document.getElementById('file');
-const v=document.getElementById('videoPlayer');
-f.onchange=e=>{const file=e.target.files[0];if(!file)return;v.src=URL.createObjectURL(file);v.style.display='block';}
+function upload(n){document.getElementById('file'+n).click()}
+document.querySelectorAll('[type=file]').forEach(f=>{
+  f.onchange = e=>{
+    const n = e.target.id.replace('file','');
+    const v = document.getElementById('vid'+n);
+    v.src = URL.createObjectURL(e.target.files[0]);
+    v.style.display = 'block';
+  }
+})
 </script>
 </body>
 </html>
